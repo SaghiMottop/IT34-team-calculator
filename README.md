@@ -85,3 +85,4 @@ pytest
 
 All tests should pass before making a Pull Request.
 # IT34-team-calculator
+# IT34-team-calculator
