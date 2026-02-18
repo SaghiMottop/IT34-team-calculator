@@ -20,9 +20,9 @@ def main():
             print("Goodbye!")
             break
 
-        if operation not in ("add", "sub", "mul", "div"):
-            print("Invalid operation. Try again.\n")
-            continue
+        if operation not in ("add", "sub", "mul", "div"):exit
+        print("Invalid operation. Try again.\n")
+        continue
 
         try:
             a = float(input("Enter first number: "))

@@ -14,12 +14,13 @@ That's part of the exercise.
 
 
 def add(a, b):
-    """Return the sum of a and b. Developer A owns this function."""
+    return a+b
     pass
 
 
 def sub(a, b):
     """Return a minus b. Developer B owns this function."""
+    return a - b
     pass
 
 
@@ -32,4 +33,5 @@ def mul(a, b):
 
 def div(a, b):
     """Return a divided by b. Developer D owns this function."""
+    return a/b
     pass

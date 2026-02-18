@@ -1,0 +1,54 @@
+Index: calculator/operations.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\noperations.py\n\nThis file contains ALL calculator operations that the team will build.\n\nIMPORTANT:\n- All developers work in THIS SAME FILE.\n- Each developer completes ONLY their own function.\n- You are NOT allowed to move your function to a different file.\n\nThis shared file is intentional. You will probably create merge conflicts.\nThat's part of the exercise.\n\"\"\"\n\n\ndef add(a, b):\n    \"\"\"Return the sum of a and b. Developer A owns this function.\"\"\"\n    pass\n\n\ndef sub(a, b):\n    \"\"\"Return a minus b. Developer B owns this function.\"\"\"\n    pass\n\n\ndef mul(a, b):\n    \"\"\"Return the product of a and b. Developer C owns this function.\"\"\"\n    return a * b\n\n    pass\n\n\ndef div(a, b):\n    \"\"\"Return a divided by b. Developer D owns this function.\"\"\"\n    pass\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/calculator/operations.py b/calculator/operations.py
+--- a/calculator/operations.py	(revision 3e5a6891aa15eb73738c0a66cdce27e2fbcc5d8d)
++++ b/calculator/operations.py	(date 1771408530218)
+@@ -14,12 +14,13 @@
+ 
+ 
+ def add(a, b):
+-    """Return the sum of a and b. Developer A owns this function."""
++    return a+b
+     pass
+ 
+ 
+ def sub(a, b):
+     """Return a minus b. Developer B owns this function."""
++    return a - b
+     pass
+ 
+ 
+@@ -32,4 +33,5 @@
+ 
+ def div(a, b):
+     """Return a divided by b. Developer D owns this function."""
++    return a/b
+     pass
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\nmain.py\n\nMain program to demonstrate the calculator functions.\nEach student implements one function (add, sub, mul, div)\ninside calculator/operations.py according to their assigned role.\n\"\"\"\n\nfrom calculator.operations import add, sub, mul, div\n\n\ndef main():\n    print(\"=== Team Calculator ===\")\n    print(\"Available operations: add, sub, mul, div\")\n    print(\"Type 'exit' to quit.\\n\")\n\n    while True:\n        operation = input(\"Choose operation: \").strip().lower()\n        if operation == \"exit\":\n            print(\"Goodbye!\")\n            break\n\n        if operation not in (\"add\", \"sub\", \"mul\", \"div\"):\n            print(\"Invalid operation. Try again.\\n\")\n            continue\n\n        try:\n            a = float(input(\"Enter first number: \"))\n            b = float(input(\"Enter second number: \"))\n        except ValueError:\n            print(\"Please enter valid numbers.\\n\")\n            continue\n\n        try:\n            if operation == \"add\":\n                result = add(a, b)\n                symbol = \"+\"\n            elif operation == \"sub\":\n                result = sub(a, b)\n                symbol = \"-\"\n            elif operation == \"mul\":\n                result = mul(a, b)\n                symbol = \"*\"\n            elif operation == \"div\":\n                result = div(a, b)\n                symbol = \"/\"\n\n            print(f\"\\nOperation: {operation.upper()}\")\n            print(f\"Calculation: {a} {symbol} {b} = {result}\\n\")\n\n        except ZeroDivisionError:\n            print(\"Error: Division by zero is not allowed.\\n\")\n        except Exception as e:\n            print(f\"Unexpected error: {e}\\n\")\n\n\nif __name__ == \"__main__\":\n    main()\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision 3e5a6891aa15eb73738c0a66cdce27e2fbcc5d8d)
++++ b/main.py	(date 1771408667994)
+@@ -20,9 +20,9 @@
+             print("Goodbye!")
+             break
+ 
+-        if operation not in ("add", "sub", "mul", "div"):
+-            print("Invalid operation. Try again.\n")
+-            continue
++        if operation not in ("add", "sub", "mul", "div"):exit
++        print("Invalid operation. Try again.\n")
++        continue
+ 
+         try:
+             a = float(input("Enter first number: "))
